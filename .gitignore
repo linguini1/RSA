@@ -1,0 +1,2 @@
+# Ignore .txt files created by program in local folder
+*.txt
