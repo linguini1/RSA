@@ -41,9 +41,12 @@ lock = (e, n)
 
 # Finding decryption key fxn
 def find_d():
-    for d_val in range(0, n):
-        if (d_val * e) % coprimes == 1 and d_val != e:
-            return d_val
+    for k in range(e):
+        if (1 + k * coprimes) % e == 0:
+            d = (1 + k * coprimes) / e
+            return int(d)
+        else:
+            pass
 
 
 # Making key

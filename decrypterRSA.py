@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
     # Dictionary
     dictionary = {}
-    characters = """QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890!@#$%^&*()\x00\x1a_\xad+-=[]\{}\n|;:'<,>.?/`~ \""""
+    characters = """QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890!@#$%^&*()\x00\x1a_\xad+-=[]\{}\n|;:'<,>.?\t/`~ \""""
     characters = list(characters)
     for index, character in enumerate(characters):
         dictionary[character] = index
