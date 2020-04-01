@@ -15,7 +15,7 @@ These files can also be decrypted with decrpyterRSA.py, using the key as input.
 
 - The time for encryption or decryption is proportional to the size of the x value in the lock or key of format (x, y).
 
-- So, if you have lots of time to encrypt but you want decryption to be faster, use the set with the LARGER x value as the lock and the SMALLER x value as the key. This works vice versa.
+- So, if you have lots of time to encrypt but you want decryption to be faster, use the set with the LARGER x value as the lock and the SMALLER x value as the key. This works vice versa. Just note that using a smaller x value for decryption makes the prime factors more apparent and makes your encryption LESS SECURE.
 
 # Feedback?
 If you have any feedback for me in regards to making the programs more efficient, please add an issue to the repository.
