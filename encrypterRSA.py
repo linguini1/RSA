@@ -1,13 +1,16 @@
 # RSA Encryption Method
 
 
-# Euclidean algorithm
+# Multiply & Square algorithm
 
-def euclidAlg(e, n, character):
-    original_num = 1
-    for _ in range(e):
-        original_num = (original_num * character) % n
-    return original_num
+def multiplySquare(base, power, modulo):
+    result = 1
+    for binary in str(format(power, 'b')):
+        if binary == "0":
+            result = (result ** 2) % modulo
+        elif binary == "1":
+            result = ((result ** 2) * base) % modulo
+    return result
 
 
 if __name__ == '__main__':
@@ -63,7 +66,7 @@ if __name__ == '__main__':
             for word in message:
                 char_nums = [dictionary[character] for character in word]
                 with Pool() as pool:
-                    new_nums = pool.starmap(euclidAlg, zip(repeat(e), repeat(n), char_nums))
+                    new_nums = pool.starmap(multiplySquare, zip(char_nums, repeat(e), repeat(n)))
                     for new_num in new_nums:
                         new_file.write(str(new_num) + " ")
 
@@ -73,10 +76,11 @@ if __name__ == '__main__':
 
     elif file_or_no == "2":
         new_message = ""
-        for character in message:
-            char_number = dictionary[character]
-            new_char_number = (char_number ** e) % n
-            new_message += str(new_char_number) + " "
+        char_numbers = [dictionary[character] for character in message]
+        with Pool() as pool:
+            new_char_numbers = pool.starmap(multiplySquare, zip(char_numbers, repeat(e), repeat(n)))
+            for new_char_number in new_char_numbers:
+                new_message += str(new_char_number) + " "
 
         # Returning message encrypted
         print("The following is your encrypted message.")

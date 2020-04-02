@@ -3,11 +3,15 @@
 
 # Euclidean algorithm
 
-def euclidAlg(e, n, character):
-    original_num = 1
-    for _ in range(e):
-        original_num = (original_num * int(character)) % n
-    return original_num
+def multiplySquare(base, power, modulo):
+    result = 1
+    base = int(base)
+    for binary in str(format(power, 'b')):
+        if binary == "0":
+            result = (result ** 2) % modulo
+        elif binary == "1":
+            result = ((result ** 2) * base) % modulo
+    return result
 
 
 if __name__ == '__main__':
@@ -64,7 +68,7 @@ if __name__ == '__main__':
             for row in message:
                 line = row.split(" ")[0:-1]
                 with Pool() as pool:
-                    new_nums = pool.starmap(euclidAlg, zip(repeat(e), repeat(n), line))
+                    new_nums = pool.starmap(multiplySquare, zip(line, repeat(e), repeat(n)))
                     for new_num in new_nums:
                         for label, value in dictionary.items():
                             if value == new_num:
@@ -77,7 +81,7 @@ if __name__ == '__main__':
     elif file_or_no == "2":
         d_message = ""
         with Pool() as pool:
-            new_nums = pool.map(euclidAlg, message)
+            new_nums = pool.starmap(multiplySquare, zip(message, repeat(e), repeat(n)))
             for new_num in new_nums:
                 for label, value in dictionary.items():
                     if value == new_num:
