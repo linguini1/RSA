@@ -1,6 +1,9 @@
 # RSA
 RSA encryption program written in python.
 
+# Disclaimer
+This program is NOT meant as a replacement for actual RSA encryption. It is most definitely not secure, and serves only as a proof of concept/experiment. Please do not encrypt any meaningful data with this program and assume it is safe.
+
 # Instructions
 In order to use the program, you must first create the lock and key using dataRSA.py.
 The program will ask for two prime numbers; the larger your primes are the more difficult it will be to break your encryption.
