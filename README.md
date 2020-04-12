@@ -1,5 +1,5 @@
 # RSA
-RSA encryption program written in python.
+RSA encryption & decryption program written in python.
 
 # Disclaimer
 This program is NOT meant as a replacement for actual RSA encryption. It is most definitely not secure, and serves only as a proof of concept/experiment. Please do not encrypt any meaningful data with this program and assume it is safe.
@@ -14,11 +14,7 @@ These files can also be decrypted with decrpyterRSA.py, using the key as input.
 # Notes
 - The encryption and decryption programs make use of multiprocessing, so be ready for 100% CPU usage when using them.
 
-- The lock and key are interchangeable, meaning you can encrypt files using the key and decrypt them using the lock.
-
-- The time for encryption or decryption is proportional to the size of the x value in the lock or key of format (x, y).
-
-- So, if you have lots of time to encrypt but you want decryption to be faster, use the set with the LARGER x value as the lock and the SMALLER x value as the key. This works vice versa. Just note that using a smaller x value for decryption makes the prime factors more apparent and makes your encryption LESS SECURE.
+- The lock and key are interchangeable, meaning you can encrypt files using the key and decrypt them using the lock. It is not a good idea though.
 
 # Feedback?
 If you have any feedback for me in regards to making the programs more efficient, please add an issue to the repository.
