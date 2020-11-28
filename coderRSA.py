@@ -1,7 +1,6 @@
 # RSA Encryption Method
 
 # Imports
-import binascii
 
 # Default file name
 name = "RSA_file.txt"
