@@ -1,7 +1,5 @@
 # RSA Encryption Method
 
-# Imports
-
 # Default file name
 name = "RSA_file.txt"
 
@@ -33,16 +31,18 @@ def multiply_square_d(base, power, modulo):
     return result
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # Satisfies error with the multithreading pool package
 
     # Asks user if they want to encrypt their data or decrypt their data
     while True:
         encrypt = input("Do you want to encrypt or decrypt? (Type the word): ")
         if encrypt.lower() == "encrypt":
             encrypt = True
+            lockOrKey = "Lock"
             break
         elif encrypt.lower() == "decrypt":
             encrypt = False
+            lockOrKey = "Key"
             break
         else:
             print("Invalid input.")
@@ -86,16 +86,16 @@ if __name__ == '__main__':
 
     # Getting lock
     while True:
-        lock_1 = input("Lock or key in format (x, y): ")
+        lock_1 = input(f"{lockOrKey} in format (x, y): ")
         try:
             lock = lock_1[1:-1].split(",")  # Removes the brackets and comma
             e = int(lock[0])  # Sets the x value as an integer for e
             n = int(lock[1])  # Sets the y value as an integer for n
             break
 
-        # If the lock format is incorrect
+        # If the lock or key format is incorrect
         except ValueError:
-            print("Invalid lock.")
+            print(f"Invalid {lockOrKey.lower()}.")
 
     # Creating dictionary
     dictionary = {}
